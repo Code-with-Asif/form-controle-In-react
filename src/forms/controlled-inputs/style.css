@@ -1,0 +1,39 @@
+
+*{margin: 0%;
+padding: 0%;
+box-sizing: border-box;}
+.mainParent{
+background-color: gray;
+height: 700px;
+}
+.mainParent h1{
+    text-align: center;
+
+    padding: 2rem;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    background-color: #fff;
+    width: 30%;
+    padding: 100px;
+    margin: auto;
+}
+.myUser{
+   margin: 10px ;
+}
+.myUser input{
+    padding: 5px 10px;
+}
+.myPeople{
+    margin: auto;
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 5px ;
+    border-radius: 2px;
+    background-color: #fff;
+}
