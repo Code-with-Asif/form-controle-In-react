@@ -8,11 +8,27 @@ const MultipleInputs = () => {
     address: "",
     phone: "",
   });
+  const [people, setPeople] = useState([]);
   const changeHandler = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     console.log(name, value);
     setPerson({ ...person, [name]: value });
+  };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (
+      person.name &&
+      person.age &&
+      person.address &&
+      person.email &&
+      person.phone
+    ) {
+      const newPerson = { ...person };
+      setPeople([...people, newPerson]);
+    } else {
+      alert("please fill All  input feilds");
+    }
   };
   return (
     <div className="mainParent">
@@ -68,9 +84,21 @@ const MultipleInputs = () => {
             onChange={changeHandler}
           />
         </div>
-        <button>Submit</button>
+        <button onClick={submitHandler}>Submit</button>
       </form>
-      <div className="people"></div>
+      <div className="people">
+        {people.map((mypeople, index) => {
+          return (
+            <div className="myPeople" key={index}>
+              <h4>{mypeople.name}</h4>
+              <h5>{mypeople.email}</h5>
+              <h5>{mypeople.address}</h5>
+              <h5>{mypeople.phone}</h5>
+              <h5>{mypeople.age}</h5>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
