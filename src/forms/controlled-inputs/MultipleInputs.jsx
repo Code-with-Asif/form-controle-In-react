@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 const MultipleInputs = () => {
   const [person, setPerson] = useState({
     name: "",
