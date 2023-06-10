@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import FileBase from "react-file-base64";
 import "./style.css";
 const ControlledComponent = () => {
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
+  const [fileUpload, setFileUpload] = useState("");
   const [people, setPeople] = useState([]);
   const submitHandler = (e) => {
     e.preventDefault();
@@ -37,14 +39,22 @@ const ControlledComponent = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
+        <FileBase
+          type="file"
+          multipl={false}
+          onDone={({ base64 }) => setFileUpload(base64)}
+        />
         <button>Submit</button>
       </form>
       <div className="people">
         {people.map((mypeople) => {
           return (
             <div className="myPeople" key={mypeople.id}>
-              <h4>{mypeople.firstName}</h4>
-              <h5>{mypeople.email}</h5>
+              <h4> Name:{mypeople.firstName}</h4>
+
+              <h5>Email:{mypeople.email}</h5>
+
+              <img src={fileUpload} alt="file" />
             </div>
           );
         })}
